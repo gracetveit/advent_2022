@@ -20,6 +20,22 @@ fn parse_string(calorie_list: String) -> Vec<i32> {
     }).collect::<Vec<i32>>()
 }
 
+pub fn second_solution(calorie_list: String) -> i32 {
+    let mut largest_sum = 0;
+    let mut current_sum = 0;
+    for x in calorie_list.split("\n") {
+        if x == "" {
+            if current_sum > largest_sum {
+                largest_sum = current_sum;
+            }
+            current_sum = 0;
+        } else {
+            current_sum += x.parse::<i32>().unwrap()
+        }
+    }
+    largest_sum
+}
+
 #[cfg(test)]
 fn test_string() -> String {
     String::from(
