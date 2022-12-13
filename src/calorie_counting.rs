@@ -8,14 +8,12 @@ pub fn calorie_counting(calorie_list: String) -> i32 {
             }
             return acc
         }).unwrap()
-    // todo!()
 }
 
 fn parse_string(calorie_list: String) -> Vec<i32> {
     calorie_list.split("\n\n").map(|x| {
         x.split("\n")
             .map(|y| {
-                println!("{y:}");
                 y.parse::<i32>().unwrap()
             })
             .sum::<i32>()
