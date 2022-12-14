@@ -2,8 +2,9 @@ use std::{fmt::Display, fs::File, io::Read, time::Instant};
 
 pub mod calorie_counting;
 pub mod rock_paper_scissors;
+pub mod rucksack_reorganization;
 
-pub fn get_input(filename: &str) -> String {
+fn get_input(filename: &str) -> String {
     let mut input: String = String::new();
     File::open(format!("./inputs/{filename:}"))
         .unwrap()
@@ -12,7 +13,7 @@ pub fn get_input(filename: &str) -> String {
     input
 }
 
-pub fn run_solution<T>(filename: &str, f: fn(String) -> T)
+fn run_solution<T>(filename: &str, f: fn(String) -> T)
 where
     T: Display,
 {
@@ -24,5 +25,5 @@ where
 }
 
 fn main() {
-    run_solution("2.txt", rock_paper_scissors::part_two)
+    run_solution("3.txt", rucksack_reorganization::part_two)
 }
