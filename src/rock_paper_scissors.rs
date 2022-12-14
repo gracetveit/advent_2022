@@ -1,7 +1,3 @@
-use std::time::Instant;
-
-use crate::get_input;
-
 pub fn rock_paper_sciccors(game_list: String) -> i32 {
     let mut total = 0;
     for game in game_list.split("\n") {
@@ -43,14 +39,6 @@ fn chosen_character_value(player_one_char: char) -> i32 {
     }
 }
 
-pub fn run_solution() {
-    let input = get_input("2.txt");
-    let now = Instant::now();
-    let answer = rock_paper_sciccors(input);
-    let elapsed_time = now.elapsed();
-    println!("{answer:}, {elapsed_time:?}")
-}
-
 pub fn part_two(game_list: String) -> i32 {
     let mut total = 0;
     for game in game_list.split("\n") {
@@ -65,7 +53,7 @@ fn part_two_score(game: &str) -> i32 {
         'A' => RPS::Rock,
         'B' => RPS::Paper,
         'C' => RPS::Sciccors,
-        _ => panic!()
+        _ => panic!(),
     };
     // Win: +6, Tie: +0, Loss: +0,
     // Rock: +1, Paper: +2, Scissors: +3
@@ -82,8 +70,7 @@ fn part_two_score(game: &str) -> i32 {
         (RPS::Sciccors, 'X') => 0 + 2,
         (RPS::Sciccors, 'Y') => 3 + 3,
         (RPS::Sciccors, 'Z') => 6 + 1,
-        (_, _) => panic!()
-
+        (_, _) => panic!(),
     }
     // todo!()
 }
@@ -91,7 +78,7 @@ fn part_two_score(game: &str) -> i32 {
 enum RPS {
     Rock,
     Paper,
-    Sciccors
+    Sciccors,
 }
 
 #[cfg(test)]
